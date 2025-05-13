@@ -113,7 +113,7 @@
   "name":"UI Invetory",
   "resources":[
     {"id":{"name":"__InputUpdateController","path":"objects/__InputUpdateController/__InputUpdateController.yy",},},
-    {"id":{"name":"objInventoryManager","path":"objects/objInventoryManager/objInventoryManager.yy",},},
+    {"id":{"name":"objInventory","path":"objects/objInventory/objInventory.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"__InputBindingIsThumbstick","path":"scripts/__InputBindingIsThumbstick/__InputBindingIsThumbstick.yy",},},
     {"id":{"name":"__InputBindingScan","path":"scripts/__InputBindingScan/__InputBindingScan.yy",},},

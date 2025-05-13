@@ -27,7 +27,7 @@ function __InputConfigVerbs()
         InputDefineVerb(INPUT_VERB.RIGHT,   "right",      [vk_right, "D"],    [ gp_axislh, gp_padr]);
         InputDefineVerb(INPUT_VERB.ACCEPT,  "accept",      vk_space,            gp_face1);
         InputDefineVerb(INPUT_VERB.CANCEL,  "cancel",      vk_backspace,        gp_face2);
-        InputDefineVerb(INPUT_VERB.INVENTORY, "inventory", vk_shift,        gp_face4);
+        InputDefineVerb(INPUT_VERB.INVENTORY, "inventory", "I",        gp_face4);
     }
     else //Flip A/B over on Switch
     {

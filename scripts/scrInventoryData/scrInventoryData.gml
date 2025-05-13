@@ -2,7 +2,9 @@ global.__inventory = undefined;
 global.__inventoryQuantityMax = 20;
 
 function InventoryManager(_gridWidth, _gridHeight) constructor {
-  __itemSlotsGrid = array_create(_gridWidth, array_create(_gridHeight, undefined));
+  __gridWidth = _gridWidth;
+  __gridHeight = _gridHeight;
+  __itemSlotsGrid = array_create(__gridWidth, array_create(__gridHeight, undefined));
   
   IsFull = function() {
     var _i = 0;
@@ -52,10 +54,27 @@ function InventoryManager(_gridWidth, _gridHeight) constructor {
 
   /// @param {real} _gridX
   /// @param {real} _gridY
-  UseItem = function(_gridX, _gridY) {
+  RemoveItemAt = function(_gridX, _gridY) {
+    __itemSlotsGrid[_gridX][_gridY] = undefined;
+  }
+
+  /// @param {real} _gridX
+  /// @param {real} _gridY
+  /// @returns {Struct.InventoryItem|undefined}
+  GetItemAt = function(_gridX, _gridY) {
     var _item = __itemSlotsGrid[_gridX][_gridY];
 
-    
+    return _item;
+  }
+
+  /// @returns {real}
+  GetGridWidth = function() {
+    return __gridWidth;
+  }
+
+  /// @returns {real}
+  GetGridHeight = function() {
+    return __gridHeight;
   }
 }
 
@@ -66,7 +85,9 @@ function InventoryItem(_icon, _name, _quantity) constructor {
   __quantity = clamp(_quantity, 1, __maxQuantity);
 
   Use = function() {
-    show_debug_message($"Item {__name} was used!");
+    var _newQuantity = GetQuantity() - 1;
+    show_debug_message($"Item {__name} was used! New quantity is {_newQuantity}.");
+    SetQuantity(_newQuantity);
   }
 
   /// @returns {Asset.GMSprite}
