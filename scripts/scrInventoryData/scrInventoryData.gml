@@ -68,9 +68,14 @@ function InventoryManager(_gridWidth, _gridHeight) constructor {
   }
 }
 
-function InventoryItem(_icon, _name, _quantity) constructor {
+/// @param {Asset.GMSprite} _icon
+/// @param {string} _name
+/// @param {real} _quantity
+/// @param {string} _description
+function InventoryItem(_icon, _name, _quantity, _description = "") constructor {
   __icon = _icon;
   __name = _name;
+  __description = _description;
   __maxQuantity = global.__inventoryQuantityMax;
   __quantity = clamp(_quantity, 1, __maxQuantity);
 
@@ -88,6 +93,11 @@ function InventoryItem(_icon, _name, _quantity) constructor {
   /// @returns {string}
   GetName = function() {
     return __name;
+  }
+
+  /// @returns {string}
+  GetDescription = function() {
+    return __description;
   }
 
   /// @returns {real}
@@ -108,6 +118,11 @@ function InventoryItem(_icon, _name, _quantity) constructor {
   /// @param {string} _newName
   SetName = function(_newName) {
     __name = _newName;
+  }
+
+  /// @param {string} _newDescription
+  SetDescription = function(_newDescription) {
+    __description = _newDescription;
   }
 
   /// @param {real} _newQuantity
@@ -138,10 +153,10 @@ function InventoryGet() {
   }
 
   global.__inventory = new InventoryManager(4, 3);
-  global.__inventory.AddItem(new InventoryItem(beetroot_05, "Beetroot", 3));
-  global.__inventory.AddItem(new InventoryItem(egg, "Egg", 4));
-  global.__inventory.AddItem(new InventoryItem(fish, "Fish", 8));
-  global.__inventory.AddItem(new InventoryItem(milk, "Milk", 1));
+  global.__inventory.AddItem(new InventoryItem(beetroot_05, "Beetroot", 3, "A beetroot. Nice!"));
+  global.__inventory.AddItem(new InventoryItem(egg, "Egg", 4, "Is this the one that came first?"));
+  global.__inventory.AddItem(new InventoryItem(fish, "Fish", 8, "Such a aquatic creature."));
+  global.__inventory.AddItem(new InventoryItem(milk, "Milk", 1, "Don't forget to boil it up before drink it."));
 
   return global.__inventory;
 }

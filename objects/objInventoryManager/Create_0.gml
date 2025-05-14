@@ -11,10 +11,17 @@ uiGridY = 10;
 uiGridSeparatorX = 8;
 uiGridSeparatorY = 8;
 
+uiItemSlotWidth = 24;
+uiItemSlotHeight = 24;
+
 uiSelectBoxPadding = 4;
 
-uiItemSlotWidth = 16;
-uiItemSlotHeight = 16;
+uiItemDescriptionMarginLeft = 6;
+uiItemDescriptionTextBorder = 8;
+uiItemDescriptionBoxWidth = 160;
+uiItemDescriptionBoxHeight = 60;
+uiItemDescriptionBoxMaximize = false;
+
 
 /// @param {real} _gridX
 /// @param {real} _gridY
