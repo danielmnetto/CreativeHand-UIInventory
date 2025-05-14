@@ -131,6 +131,17 @@ function InventoryItem(_icon, _name, _quantity) constructor {
   }
 }
 
+/// @param {real} _x1
+/// @param {real} _y1
+/// @param {real} _x2
+/// @param {real} _y2
+function UIItemSlotArea(_x1, _y1, _x2, _y2) constructor {
+  x1 = _x1;
+  x2 = _x2;
+  y1 = _y1;
+  y2 = _y2;
+}
+
 function InventoryGet() {
   if (!is_undefined(global.__inventory)) {
     return global.__inventory;

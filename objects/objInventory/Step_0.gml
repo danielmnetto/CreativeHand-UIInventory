@@ -1,11 +1,24 @@
 if (!isOpen) exit;
 
-if (inputNavX != 0 || inputNavY != 0) {
-  currentGridX = clamp(currentGridX + inputNavX, 0, inventory.GetGridWidth() - 1);
-  currentGridY = clamp(currentGridY + inputNavY, 0, inventory.GetGridHeight() - 1);
-}
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
 
-currentItem = inventory.GetItemAt(currentGridX, currentGridY);
+currentGridX = -1;
+currentGridY = -1;
+currentItem = undefined;
+
+for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
+  for (var _y = 0; _y < inventory.GetGridHeight(); _y++) {
+    var _gridArea = GetUIItemSlotAreaAt(_x, _y);
+
+    if (_mouseX >= _gridArea.x1 && _mouseX <= _gridArea.x2 && _mouseY >= _gridArea.y1 && _mouseY <= _gridArea.y2) {
+      currentGridX = _x;
+      currentGridY = _y;
+      currentItem = inventory.GetItemAt(currentGridX, currentGridY);
+      break;
+    }
+  }
+}
 
 if (InputPressed(INPUT_VERB.ACCEPT) && !is_undefined(currentItem)) {
   currentItem.Use();
