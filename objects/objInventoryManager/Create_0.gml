@@ -8,8 +8,10 @@ currentItem = undefined;
 
 uiGridX = 10;
 uiGridY = 10;
-uiGridSeparatorX = 4;
-uiGridSeparatorY = 4;
+uiGridSeparatorX = 8;
+uiGridSeparatorY = 8;
+
+uiSelectBoxPadding = 4;
 
 uiItemSlotWidth = 16;
 uiItemSlotHeight = 16;
