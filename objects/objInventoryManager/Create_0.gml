@@ -6,13 +6,13 @@ currentGridX = -1;
 currentGridY = -1;
 currentItem = undefined;
 
-uiGridX = display_get_gui_width() / 4;
-uiGridY = display_get_gui_height() / 4;
-uiGridSeparatorX = 16;
-uiGridSeparatorY = 16;
+uiGridX = 10;
+uiGridY = 10;
+uiGridSeparatorX = 4;
+uiGridSeparatorY = 4;
 
-uiItemSlotWidth = 64;
-uiItemSlotHeight = 64;
+uiItemSlotWidth = 16;
+uiItemSlotHeight = 16;
 
 /// @param {real} _gridX
 /// @param {real} _gridY

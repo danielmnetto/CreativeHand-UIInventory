@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scrScreenSettings",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrScreenSettings",
+  "parent":{
+    "name":"Screen",
+    "path":"folders/Scripts/Screen.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
