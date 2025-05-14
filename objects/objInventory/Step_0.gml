@@ -11,7 +11,7 @@ for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
   for (var _y = 0; _y < inventory.GetGridHeight(); _y++) {
     var _gridArea = GetUIItemSlotAreaAt(_x, _y);
 
-    if (_mouseX >= _gridArea.x1 && _mouseX <= _gridArea.x2 && _mouseY >= _gridArea.y1 && _mouseY <= _gridArea.y2) {
+    if (_mouseX >= _gridArea.x1 && _mouseY >= _gridArea.y1 && _mouseX <= _gridArea.x2 && _mouseY <= _gridArea.y2) {
       currentGridX = _x;
       currentGridY = _y;
       currentItem = inventory.GetItemAt(currentGridX, currentGridY);

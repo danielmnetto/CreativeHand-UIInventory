@@ -6,9 +6,6 @@ currentGridX = -1;
 currentGridY = -1;
 currentItem = undefined;
 
-inputNavX = 0;
-inputNavY = 0;
-
 uiGridX = display_get_gui_width() / 4;
 uiGridY = display_get_gui_height() / 4;
 uiGridSeparatorX = 16;

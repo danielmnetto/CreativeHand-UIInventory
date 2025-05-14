@@ -7,21 +7,16 @@ function InventoryManager(_gridWidth, _gridHeight) constructor {
   __itemSlotsGrid = array_create(__gridWidth, array_create(__gridHeight, undefined));
   
   IsFull = function() {
-    var _i = 0;
-    
-    repeat(array_length(__itemSlotsGrid)) {
-      var _itemLine = __itemSlotsGrid[_i];
-      var _j = 0;
+    for(var _x = 0; _x < array_length(__itemSlotsGrid); _x++) {
+      var _itemLine = __itemSlotsGrid[_x];
 
-      repeat(array_length(_itemLine)) {
-        var _itemSlot = _itemLine[_j];
-        
+      for(var _y = 0; _y < array_length(_itemLine); _y++) {
+        var _itemSlot = _itemLine[_y];
+
         if (is_undefined(_itemSlot)) {
           return false;
         }
-        _j++;
       }
-      _i++;
     }
 
     return true;
@@ -30,24 +25,18 @@ function InventoryManager(_gridWidth, _gridHeight) constructor {
   /// @param {Struct.InventoryItem} _item
   /// @returns {Struct.InventoryItem|undefined}
   AddItem = function(_item) {
-    var _i = 0;
+    for(var _x = 0; _x < array_length(__itemSlotsGrid); _x++) {
+      var _itemLine = __itemSlotsGrid[_x];
 
-    repeat(array_length(__itemSlotsGrid)) {
-      var _itemLine = __itemSlotsGrid[_i];
-      var _j = 0;
+      for(var _y = 0; _y < array_length(_itemLine); _y++) {
+        var _itemSlot = _itemLine[_y];
 
-      repeat(array_length(_itemLine)) {
-        var _itemSlot = _itemLine[_j];
-        
         if (is_undefined(_itemSlot)) {
-          __itemSlotsGrid[_i, _j] = _item;
+          __itemSlotsGrid[_x][_y] = _item;
 
-          return __itemSlotsGrid[_i, _j];
+          return _item;
         }
-        _j++;
       }
-
-      _i++;
     }
 
     return undefined;
@@ -138,8 +127,8 @@ function InventoryItem(_icon, _name, _quantity) constructor {
 /// @param {real} _y2
 function UIItemSlotArea(_x1, _y1, _x2, _y2) constructor {
   x1 = _x1;
-  x2 = _x2;
   y1 = _y1;
+  x2 = _x2;
   y2 = _y2;
 }
 
