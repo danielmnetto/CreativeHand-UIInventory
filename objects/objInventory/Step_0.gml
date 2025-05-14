@@ -20,7 +20,7 @@ for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
   }
 }
 
-if (InputPressed(INPUT_VERB.ACCEPT) && !is_undefined(currentItem)) {
+if (mouse_check_button_pressed(mb_left) && !is_undefined(currentItem)) {
   currentItem.Use();
 
   if (currentItem.GetQuantity() == 0) {

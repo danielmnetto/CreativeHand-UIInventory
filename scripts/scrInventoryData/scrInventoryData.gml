@@ -40,12 +40,13 @@ function InventoryManager(_gridWidth, _gridHeight) constructor {
         var _itemSlot = _itemLine[_j];
         
         if (is_undefined(_itemSlot)) {
-          _itemSlot = _item;
+          __itemSlotsGrid[_i, _j] = _item;
 
-          return _itemSlot;
+          return __itemSlotsGrid[_i, _j];
         }
         _j++;
       }
+
       _i++;
     }
 
