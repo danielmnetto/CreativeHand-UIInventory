@@ -1,3 +1,7 @@
+if (keyboard_check_pressed(vk_f5)) {
+  GameReload();
+}
+
 if (!isOpen) exit;
 
 var _mouseX = device_mouse_x_to_gui(0);

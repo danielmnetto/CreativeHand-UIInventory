@@ -1,5 +1,6 @@
 if (!isOpen) exit;
 
+// Black semi-transparent background
 draw_set_alpha(0.7);
 draw_set_color(c_black);
 
@@ -13,10 +14,8 @@ for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
     var _gridArea = GetUIItemSlotAreaAt(_x, _y);
     var _isItemSelected = _x == currentGridX && _y == currentGridY;
     var _itemBoxSprite = _isItemSelected ? sprBoxLight : sprBoxDark;
-    draw_set_color(c_gray);
     
     draw_sprite_stretched(_itemBoxSprite, 0, _gridArea.x1, _gridArea.y1, _gridArea.x2 - _gridArea.x1, _gridArea.y2 - _gridArea.y1)
-    //draw_rectangle(_gridArea.x1, _gridArea.y1, _gridArea.x2, _gridArea.y2, false);
 
     var _item = inventory.GetItemAt(_x, _y);
 
@@ -55,16 +54,13 @@ for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
     var _itemInfoX = _gridArea.x2 + uiItemDescriptionMarginLeft;
     var _itemInfoY = _gridArea.y2 - _gridArea.y1 / 2;
     var _text = scribble($"[c_white]{_itemName} ({_itemQuantity})\n[c_yellow]{_itemDescription}[/]")
-      .padding(uiItemDescriptionTextBorder, uiItemDescriptionTextBorder, uiItemDescriptionTextBorder, uiItemDescriptionTextBorder);
-      //.scale_to_box(uiItemDescriptionBoxWidth, uiItemDescriptionBoxHeight, uiItemDescriptionBoxMaximize);
+      .padding(uiItemDescriptionTextBorder, uiItemDescriptionTextBorder, uiItemDescriptionTextBorder, uiItemDescriptionTextBorder)
+      .wrap(uiItemDescriptionWrapWidth) 
+      .sdf_shadow(uiItemDescriptionShadowColor, uiItemDescriptionShadowAlpha, uiItemDescriptionShadowXOffset, uiItemDescriptionShadowYOffset);
     var _text_bbox = _text.get_bbox();
 
-    draw_set_color(c_ltgray);
-    draw_sprite_stretched(sprBoxWhite, 0, _itemInfoX, _itemInfoY, _text_bbox.right, _text_bbox.bottom)
-    //draw_rectangle(_itemInfoX + _text_bbox.left, _itemInfoY + _text_bbox.top, _itemInfoX + _text_bbox.right, _itemInfoY + _text_bbox.bottom, false);
-    
+    draw_sprite_stretched(sprBoxWhite, 0, _itemInfoX, _itemInfoY, _text_bbox.right, _text_bbox.bottom);
+
     _text.draw(_itemInfoX, _itemInfoY);
   }
 }
-
-draw_set_color(-1);

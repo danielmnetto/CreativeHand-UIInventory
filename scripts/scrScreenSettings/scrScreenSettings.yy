@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scrScreenSettings",
   "parent":{
-    "name":"Screen",
-    "path":"folders/Scripts/Screen.yy",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

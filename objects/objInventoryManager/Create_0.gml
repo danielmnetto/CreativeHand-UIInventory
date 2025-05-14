@@ -6,8 +6,8 @@ currentGridX = -1;
 currentGridY = -1;
 currentItem = undefined;
 
-uiGridX = 10;
-uiGridY = 10;
+uiGridX = display_get_gui_width() / 4;
+uiGridY = display_get_gui_height() / 4;
 uiGridSeparatorX = 8;
 uiGridSeparatorY = 8;
 
@@ -18,10 +18,11 @@ uiSelectBoxPadding = 4;
 
 uiItemDescriptionMarginLeft = 6;
 uiItemDescriptionTextBorder = 8;
-uiItemDescriptionBoxWidth = 160;
-uiItemDescriptionBoxHeight = 60;
-uiItemDescriptionBoxMaximize = false;
-
+uiItemDescriptionWrapWidth = 160;
+uiItemDescriptionShadowColor = c_black;
+uiItemDescriptionShadowAlpha = 0.6;
+uiItemDescriptionShadowXOffset = 4;
+uiItemDescriptionShadowYOffset = 4;
 
 /// @param {real} _gridX
 /// @param {real} _gridY
@@ -34,3 +35,5 @@ GetUIItemSlotAreaAt = function(_gridX, _gridY) {
 
   return new UIItemSlotArea(_x1, _y1, _x2, _y2);
 }
+
+scribble_font_set_default("fnt_game");
