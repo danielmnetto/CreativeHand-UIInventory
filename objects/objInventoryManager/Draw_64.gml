@@ -34,7 +34,6 @@ for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
     draw_sprite(_itemIcon, 0, _itemIconX, _itemIconY);
 
     var _itemName = _item.GetName();
-
     
   }
 }
