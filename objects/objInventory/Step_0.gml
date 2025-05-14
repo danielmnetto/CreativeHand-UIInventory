@@ -1,8 +1,8 @@
 if (!isOpen) exit;
 
 if (inputNavX != 0 || inputNavY != 0) {
-  currentGridX = clamp(currentGridX + inputNavX, 0, inventory.GetGridWidth());
-  currentGridY = clamp(currentGridY + inputNavY, 0, inventory.GetGridHeight());
+  currentGridX = clamp(currentGridX + inputNavX, 0, inventory.GetGridWidth() - 1);
+  currentGridY = clamp(currentGridY + inputNavY, 0, inventory.GetGridHeight() - 1);
 }
 
 currentItem = inventory.GetItemAt(currentGridX, currentGridY);
