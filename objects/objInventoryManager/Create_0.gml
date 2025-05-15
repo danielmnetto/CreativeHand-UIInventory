@@ -20,10 +20,6 @@ uiItemDescriptionMarginLeft = 6;
 uiItemDescriptionMarginRight = 6;
 uiItemDescriptionTextBorder = 8;
 uiItemDescriptionWrapWidth = 160;
-uiItemDescriptionShadowColor = c_black;
-uiItemDescriptionShadowAlpha = 0.6;
-uiItemDescriptionShadowXOffset = 4;
-uiItemDescriptionShadowYOffset = 4;
 
 /// @param {real} _gridX
 /// @param {real} _gridY

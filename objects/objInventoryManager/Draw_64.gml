@@ -58,12 +58,11 @@ for (var _y = 0; _y < inventory.GetGridHeight(); _y++) {
     var _text = scribble($"[c_white]{_itemName} ({_itemQuantity})\n[c_yellow]{_itemDescription}[/]")
       .padding(uiItemDescriptionTextBorder, uiItemDescriptionTextBorder, uiItemDescriptionTextBorder, uiItemDescriptionTextBorder)
       .wrap(uiItemDescriptionWrapWidth) 
-      .sdf_shadow(uiItemDescriptionShadowColor, uiItemDescriptionShadowAlpha, uiItemDescriptionShadowXOffset, uiItemDescriptionShadowYOffset);
     var _text_bbox = _text.get_bbox();
 
     var _marginDirection = _isMouseXAtGuiRightSide ? -1 : 1;
     var _itemInfoX = _gridArea.x2 + uiItemDescriptionMarginLeft;
-    var _itemInfoY = _gridArea.y2 - _gridArea.y1 / 2;
+    var _itemInfoY = _gridArea.y1 - (_gridArea.y2 - _gridArea.y1) / 2;
 
     if (_isMouseXAtGuiRightSide) {
       _itemInfoX = _gridArea.x1 - uiItemDescriptionMarginRight - _text_bbox.right;

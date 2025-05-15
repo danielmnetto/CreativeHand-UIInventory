@@ -158,6 +158,10 @@ function InventoryGet() {
   global.__inventory.AddItem(new InventoryItem(sunflower_05, "Sunflower", 3, "Always looking at the sun."));
   global.__inventory.AddItem(new InventoryItem(wheat_05, "Wheat", 8, "The first step to make bread."));
   global.__inventory.AddItem(new InventoryItem(radish_05, "Radish", 1, "Another color for your salad."));
+  global.__inventory.AddItem(new InventoryItem(cabbage_05, "Cabbage", 3, "A big ball of healthy leaves."));
+  global.__inventory.AddItem(new InventoryItem(cauliflower_05, "Cauliflower", 6, "What kind of flower is this?"));
+  global.__inventory.AddItem(new InventoryItem(potato_05, "Potato", 3, "Bake it and you won't regret!"));
+  global.__inventory.AddItem(new InventoryItem(rock, "Rock", 1, "A rock."));
 
   return global.__inventory;
 }
