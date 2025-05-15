@@ -23,6 +23,10 @@ function InventoryManager(_gridWidth, _gridHeight) constructor {
   /// @param {Struct.InventoryItem} _item
   /// @returns {Struct.InventoryItem|real} The added item or -1 if it was not possible to add it.
   AddItem = function(_item) {
+    if (IsFull()) {
+      return -1;
+    }
+
     for(var _y = 0; _y < __gridHeight; _y++) {
       for(var _x = 0; _x < __gridWidth; _x++) {
         var _itemSlot = __itemSlotsGrid[_x][_y];

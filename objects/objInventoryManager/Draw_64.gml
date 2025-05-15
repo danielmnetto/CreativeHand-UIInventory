@@ -55,7 +55,7 @@ for (var _y = 0; _y < inventory.GetGridHeight(); _y++) {
     var _itemDescription = _item.GetDescription();
     var _itemQuantity = _item.GetQuantity();
 
-    var _text = scribble($"[c_white]{_itemName} ({_itemQuantity})\n[c_yellow]{_itemDescription}[/]")
+    var _text = scribble($"[c_black]{_itemName} ({_itemQuantity})\n[c_green]{_itemDescription}[/]")
       .padding(uiItemDescriptionTextBorder, uiItemDescriptionTextBorder, uiItemDescriptionTextBorder, uiItemDescriptionTextBorder)
       .wrap(uiItemDescriptionWrapWidth) 
     var _text_bbox = _text.get_bbox();
