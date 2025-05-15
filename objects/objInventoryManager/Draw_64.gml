@@ -12,8 +12,8 @@ draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 draw_set_alpha(1);
 
 // Draw rectangle & items' icons
-for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
-  for (var _y = 0; _y < inventory.GetGridHeight(); _y++) {
+for (var _y = 0; _y < inventory.GetGridHeight(); _y++) {
+  for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
     var _gridArea = GetUIItemSlotAreaAt(_x, _y);
     var _isItemSelected = _x == currentGridX && _y == currentGridY;
     var _itemBoxSprite = _isItemSelected ? sprBoxLight : sprBoxDark;
@@ -35,8 +35,8 @@ for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
 }
 
 // Draw selected item name, quantity & description.
-for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
-  for (var _y = 0; _y < inventory.GetGridHeight(); _y++) {
+for (var _y = 0; _y < inventory.GetGridHeight(); _y++) {
+  for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
     var _gridArea = GetUIItemSlotAreaAt(_x, _y);
     var _isItemSelected = _x == currentGridX && _y == currentGridY;
     var _item = inventory.GetItemAt(_x, _y);
@@ -61,9 +61,13 @@ for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
       .sdf_shadow(uiItemDescriptionShadowColor, uiItemDescriptionShadowAlpha, uiItemDescriptionShadowXOffset, uiItemDescriptionShadowYOffset);
     var _text_bbox = _text.get_bbox();
 
-    var _itemInfoX = _gridArea.x2 + uiItemDescriptionMarginLeft - (_isMouseXAtGuiRightSide * _text_bbox.right);
+    var _marginDirection = _isMouseXAtGuiRightSide ? -1 : 1;
+    var _itemInfoX = _gridArea.x2 + uiItemDescriptionMarginLeft;
     var _itemInfoY = _gridArea.y2 - _gridArea.y1 / 2;
-    var _textHAlign = _isMouseXAtGuiRightSide ? "[fa_right]" : "[fa_left]";
+
+    if (_isMouseXAtGuiRightSide) {
+      _itemInfoX = _gridArea.x1 - uiItemDescriptionMarginRight - _text_bbox.right;
+    }
 
     draw_sprite_stretched(sprBoxWhite, 0, _itemInfoX, _itemInfoY, _text_bbox.right, _text_bbox.bottom);
 

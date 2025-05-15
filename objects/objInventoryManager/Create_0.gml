@@ -17,6 +17,7 @@ uiItemSlotHeight = 24;
 uiSelectBoxPadding = 4;
 
 uiItemDescriptionMarginLeft = 6;
+uiItemDescriptionMarginRight = 6;
 uiItemDescriptionTextBorder = 8;
 uiItemDescriptionWrapWidth = 160;
 uiItemDescriptionShadowColor = c_black;

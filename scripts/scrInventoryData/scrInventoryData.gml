@@ -7,11 +7,9 @@ function InventoryManager(_gridWidth, _gridHeight) constructor {
   __itemSlotsGrid = array_create(__gridWidth, array_create(__gridHeight, undefined));
   
   IsFull = function() {
-    for(var _x = 0; _x < array_length(__itemSlotsGrid); _x++) {
-      var _itemLine = __itemSlotsGrid[_x];
-
-      for(var _y = 0; _y < array_length(_itemLine); _y++) {
-        var _itemSlot = _itemLine[_y];
+    for(var _y = 0; _y < __gridHeight; _y++) {
+      for(var _x = 0; _x < __gridWidth; _x++) {
+        var _itemSlot = __itemSlotsGrid[_x][_y];
 
         if (is_undefined(_itemSlot)) {
           return false;
@@ -23,23 +21,20 @@ function InventoryManager(_gridWidth, _gridHeight) constructor {
   }
   
   /// @param {Struct.InventoryItem} _item
-  /// @returns {Struct.InventoryItem|undefined}
+  /// @returns {Struct.InventoryItem|real} The added item or -1 if it was not possible to add it.
   AddItem = function(_item) {
-    for(var _x = 0; _x < array_length(__itemSlotsGrid); _x++) {
-      var _itemLine = __itemSlotsGrid[_x];
-
-      for(var _y = 0; _y < array_length(_itemLine); _y++) {
-        var _itemSlot = _itemLine[_y];
+    for(var _y = 0; _y < __gridHeight; _y++) {
+      for(var _x = 0; _x < __gridWidth; _x++) {
+        var _itemSlot = __itemSlotsGrid[_x][_y];
 
         if (is_undefined(_itemSlot)) {
           __itemSlotsGrid[_x][_y] = _item;
-
           return _item;
         }
       }
     }
 
-    return undefined;
+    return -1;
   }
 
   /// @param {real} _gridX
@@ -136,6 +131,7 @@ function InventoryItem(_icon, _name, _quantity, _description = "") constructor {
   }
 }
 
+/// @desc This constructor is used to define a rectangle area for item slots at GUI.
 /// @param {real} _x1
 /// @param {real} _y1
 /// @param {real} _x2
@@ -147,6 +143,7 @@ function UIItemSlotArea(_x1, _y1, _x2, _y2) constructor {
   y2 = _y2;
 }
 
+/// @returns {Struct.InventoryManager}
 function InventoryGet() {
   if (!is_undefined(global.__inventory)) {
     return global.__inventory;
@@ -157,10 +154,10 @@ function InventoryGet() {
   global.__inventory.AddItem(new InventoryItem(egg, "Egg", 4, "Is this the one that came first?"));
   global.__inventory.AddItem(new InventoryItem(fish, "Fish", 8, "Such a aquatic creature."));
   global.__inventory.AddItem(new InventoryItem(milk, "Milk", 1, "Don't forget to boil it up before drink it."));
-  global.__inventory.AddItem(new InventoryItem(beetroot_05, "Beetroot", 3, "You can make a juice with it."));
-  global.__inventory.AddItem(new InventoryItem(egg, "Egg", 4, "Is this the one that came first?"));
-  global.__inventory.AddItem(new InventoryItem(fish, "Fish", 8, "Such a aquatic creature."));
-  global.__inventory.AddItem(new InventoryItem(milk, "Milk", 1, "Don't forget to boil it up before drink it."));
+  global.__inventory.AddItem(new InventoryItem(pumpkin_05, "Pumpkin", 2, "Perfect to bake a delicious pie."));
+  global.__inventory.AddItem(new InventoryItem(sunflower_05, "Sunflower", 3, "Always looking at the sun."));
+  global.__inventory.AddItem(new InventoryItem(wheat_05, "Wheat", 8, "The first step to make bread."));
+  global.__inventory.AddItem(new InventoryItem(radish_05, "Radish", 1, "Another color for your salad."));
 
   return global.__inventory;
 }
