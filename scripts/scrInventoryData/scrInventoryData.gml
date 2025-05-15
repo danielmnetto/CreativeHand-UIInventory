@@ -157,6 +157,10 @@ function InventoryGet() {
   global.__inventory.AddItem(new InventoryItem(egg, "Egg", 4, "Is this the one that came first?"));
   global.__inventory.AddItem(new InventoryItem(fish, "Fish", 8, "Such a aquatic creature."));
   global.__inventory.AddItem(new InventoryItem(milk, "Milk", 1, "Don't forget to boil it up before drink it."));
+  global.__inventory.AddItem(new InventoryItem(beetroot_05, "Beetroot", 3, "You can make a juice with it."));
+  global.__inventory.AddItem(new InventoryItem(egg, "Egg", 4, "Is this the one that came first?"));
+  global.__inventory.AddItem(new InventoryItem(fish, "Fish", 8, "Such a aquatic creature."));
+  global.__inventory.AddItem(new InventoryItem(milk, "Milk", 1, "Don't forget to boil it up before drink it."));
 
   return global.__inventory;
 }

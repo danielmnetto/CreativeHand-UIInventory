@@ -1,5 +1,8 @@
 if (!isOpen) exit;
 
+var _mouseX = device_mouse_x_to_gui(0);
+var _isMouseXAtGuiRightSide = _mouseX >= display_get_gui_width() / 2;
+
 // Black semi-transparent background
 draw_set_alpha(0.7);
 draw_set_color(c_black);
@@ -51,13 +54,16 @@ for (var _x = 0; _x < inventory.GetGridWidth(); _x++) {
     var _itemName = _item.GetName();
     var _itemDescription = _item.GetDescription();
     var _itemQuantity = _item.GetQuantity();
-    var _itemInfoX = _gridArea.x2 + uiItemDescriptionMarginLeft;
-    var _itemInfoY = _gridArea.y2 - _gridArea.y1 / 2;
+
     var _text = scribble($"[c_white]{_itemName} ({_itemQuantity})\n[c_yellow]{_itemDescription}[/]")
       .padding(uiItemDescriptionTextBorder, uiItemDescriptionTextBorder, uiItemDescriptionTextBorder, uiItemDescriptionTextBorder)
       .wrap(uiItemDescriptionWrapWidth) 
       .sdf_shadow(uiItemDescriptionShadowColor, uiItemDescriptionShadowAlpha, uiItemDescriptionShadowXOffset, uiItemDescriptionShadowYOffset);
     var _text_bbox = _text.get_bbox();
+
+    var _itemInfoX = _gridArea.x2 + uiItemDescriptionMarginLeft - (_isMouseXAtGuiRightSide * _text_bbox.right);
+    var _itemInfoY = _gridArea.y2 - _gridArea.y1 / 2;
+    var _textHAlign = _isMouseXAtGuiRightSide ? "[fa_right]" : "[fa_left]";
 
     draw_sprite_stretched(sprBoxWhite, 0, _itemInfoX, _itemInfoY, _text_bbox.right, _text_bbox.bottom);
 
